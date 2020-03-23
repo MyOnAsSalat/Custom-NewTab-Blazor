@@ -1,0 +1,49 @@
+﻿@inject HttpClient HttpClient
+@inject DialogService dialogService
+<div class="tab_scrollable">
+    <div class="container tabview-bootstrap-container-padding">
+        @if (BookmarksModels != null && BookmarksModels.Any() && Initialized)
+        {
+            @for (var i = 0; i < BookmarksModels.Max(x => x.Row) + 1 + AdditionalRowsCount; i++)
+            {
+                <div class="row">
+                    @for (var j = 0; j < 6; j++)
+                    {
+                        <div class="col-2">
+                            @if (BookmarksModels.Any(x => x.Row == i && x.Column == j))
+                            {
+                                <BookmarkComponent Row="@(i + AdditionalRowsCount)" Column="@j" Model="@BookmarksModels.FirstOrDefault(x => x.Row == i && x.Column == j)"
+                                                   OnEditClick="@((args) => ShowEditBookmarkWindow(args))"></BookmarkComponent>
+                            }
+                            else
+                            {
+                                <BookmarkComponent Row="@i" Column="@j" OnClick="@((args) => ShowNewBookmarkWindow(args))"></BookmarkComponent>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+            <div class="row">
+                <div class="col-12">
+                    <Radzen.Blazor.RadzenButton Click="(()=>{AdditionalRowsCount++;})" Style="width: 100%; background-color: #870597;" Text="▼"></Radzen.Blazor.RadzenButton>
+                </div>
+            </div>
+        }
+        else if (BookmarksModels != null && Initialized)
+        {
+            <div class="row">
+                @for (var j = 0; j < 6; j++)
+                {
+                    <div class="col-2">
+                        <BookmarkComponent Row="0" Column="@j" OnClick="@((args) => ShowNewBookmarkWindow(args))"></BookmarkComponent>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+@code
+{
+    async Task ShowBookmarkDialog(ChromeNewTab.Shared.Models.Bookmark bookmark, bool isNew) => await dialogService.OpenAsync(isNew? "New Bookmark☆" : "Edit Bookmark☆", ds =>
+        @<EditBookmarkDialogue IsNew="@isNew" Bookmark="bookmark" OnRemoveBookmark="((args)=>RemoveBookmark(args))" OnSetBookmark="((args) => SetBookmark(args))"></EditBookmarkDialogue>);
+}

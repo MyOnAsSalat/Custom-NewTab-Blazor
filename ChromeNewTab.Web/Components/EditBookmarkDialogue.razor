@@ -1,0 +1,41 @@
+﻿@inject DialogService ds
+@if (Bookmark != null)
+{
+    <RadzenCard Style="padding: 5px;">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="text-center" style="padding-top: 8px"> <h4>Title</h4></div>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" Style="margin-bottom: 20px; width: 100%" Value="@Bookmark.Title" Change="@(args => Change(args, "Title"))"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="text-center"> <h4 style="padding-top: 8px">URL</h4></div>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox Style="margin-bottom: 20px; width: 100%" Value="@Bookmark.Url" Change="@(args => Change(args, "Url"))"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="text-center"> <h4 style="padding-top: 8px">Image URL</h4></div>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox Style="margin-bottom: 20px; width: 100%" Value="@Bookmark.ImageUrl" Change="@(args => Change(args, "ImageUrl"))"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenButton Text="Ok" Click="(()=> {ds.Close(true); SetBookmark();})" ButtonStyle="ButtonStyle.Success" Style="margin-bottom: 10px; width: 150px" />
+                <RadzenButton Text="Cancel" Click="(()=> ds.Close(false))" ButtonStyle="ButtonStyle.Secondary" Style="margin-bottom: 10px; width: 150px" />
+                @if (!IsNew)
+                {
+                    <RadzenButton Text="Remove" Click="(()=> {ds.Close(false); RemoveBookMark();})" ButtonStyle="ButtonStyle.Danger" Style="margin-bottom: 10px; width: 150px" />
+                }
+            
+            </div>
+        </div>
+    </RadzenCard>
+}

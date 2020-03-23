@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>NewTab</title>
+    <base href="/"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+    <link href="css/site.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+<body style="background-color: #3C4043">
+
+<div class="container">
+    <br />
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-12">
+            <form style="background-color: #323639" onsubmit="onFormSumbit();return false;" class="card card-sm">
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <a id="SearchEngineLink" href="https://google.com" style="color: white" class="h2 px-3">Google</a>
+                    </div>
+                    <!--end of col-->
+                    <div class="col">
+                        <input id="input" style="background-color: #202124" class="form-control form-control-lg form-control-borderless text-white" type="search" placeholder="Search...	">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-lg btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Change search engine</span>
+                            </button>
+                            <div style="background-color: #323639; color: #fff" class="dropdown-menu">
+                                <a class="dropdown-item text-white" onclick="setGoogle();return false;" >Google</a>
+                                <a class="dropdown-item text-white" onclick="setYandex();return false;">Yandex</a>
+                                <a class="dropdown-item text-white" onclick="setDuckDuckGo();return false;">DuckDuckGo</a>
+                                <a class="dropdown-item text-white" onclick="setWolframAlpha();return false;">WolframAlpha</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-white" >Settings</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+            <iframe loading="lazy" seamless src="https://127.0.0.1:5001/blazor.html" style="height: 845px; width:100% " frameBorder="0" class="">
+                Ваш браузер не поддерживает плавающие фреймы!
+            </iframe>
+
+<script>
+    var baseUrl = 'https://www.google.com/search?q=';
+    var link = document.getElementById('SearchEngineLink');
+    function onFormSumbit() {
+        var searchString = document.getElementById('input').value;
+        window.location.href = baseUrl + searchString;
+    }
+    function setGoogle() {
+        baseUrl = 'https://www.google.com/search?q=';
+        link.href = 'https://google.com';
+        link.text = 'Google';
+    }
+    function setYandex() {
+        baseUrl = 'https://yandex.ru/search/?clid=2261484&text=';
+        link.href = 'https://yandex.ru';
+        link.text = 'Yandex';
+    }
+    function setDuckDuckGo() {
+        baseUrl = 'https://duckduckgo.com/?q=';
+        link.href = 'https://duckduckgo.com/';
+        link.text = 'DuckDuckGo';
+    }
+    function setWolframAlpha() {
+        baseUrl = 'https://www.wolframalpha.com/input/?i=';
+        link.href = 'https://www.wolframalpha.com/';
+        link.text = 'WolframAlpha';
+    }
+    function onSettings() {
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+﻿.ui-tabview-panels {
+    background-color: #870597;
+    border: solid 1px #870597;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.01);
+    flex: 1;
+    overflow: auto;
+}
+body {
+    margin: 0;
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ffffff;
+    text-align: left;
+    background-color: #f3f5f7;
+}
+.ui-tabview-nav .ui-tabview-selected {
+    background-color: #3C4043;
+    border-bottom-color: #870597;
+    margin-bottom: -1px;
+    position: relative;
+    border-top-color: #870597;
+}
+.ui-tabview-panels {
+    background-color: #3C4043;
+    border: solid 1px #870597;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.01);
+    flex: 1;
+    overflow: auto;
+}
+.ui-tabview-panel {
+    padding: 0rem;
+}
+.ui-tabview-nav li {
+    border: solid 1px #3C4043;
+    border-top-width: 2px;
+    border-bottom-color: #3C4043;
+    background-color: #202124;
+    border-radius: 4px 4px 0 0;
+}
+.ui-tabview-nav .ui-tabview-selected {
+    background-color: #3C4043;
+    border-color: #870597;
+    border-bottom-color: #3C4043;
+    margin-bottom: -1px;
+    position: relative;
+    border-top-color: #870597;
+}
+.ui-tabview-nav li:hover:not(.ui-tabview-selected):not(.ui-state-disabled) {
+    background-color: #3C4043;
+    border-top-color: #3C4043;
+}
+    .ui-tabview-nav li:hover:not(.ui-tabview-selected):not(.ui-state-disabled) a {
+        color: #ffffff;
+    }
+.ui-tabview-nav .ui-tabview-selected a {
+    color: #ffffff;
+}
+.ui-state-active a[role='tab'] {
+    color: #ffffff;
+}
+
+.ui-dialog {
+    position: fixed;
+    overflow: hidden;
+    background-color: #323639;
+    box-shadow: 0 22px 64px 0 rgba(0, 0, 0, 0.22);
+    border-radius: 4px;
+}
+.card {
+    padding: 1.25rem 1.5625rem;
+    border-radius: 4px;
+    box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.06);
+    background-color: #323639;
+}
+.textbox, .textarea, .mask, .ui-dropdown, .ui-multiselect, .ui-calendar-w-btn, .ui-spinner, .ui-lookup-search input {
+    border: 1px solid #202124;
+    border-radius: 4px;
+    box-shadow: inset 0 4px 3px 0 rgba(0, 0, 0, 0.03);
+    background-color: #202124;
+}
+.textbox:hover, .textarea:hover, .mask:hover, .ui-dropdown:hover, .ui-multiselect:hover, .ui-calendar-w-btn:hover, .ui-spinner:hover, .ui-lookup-search input:hover, .ui-chkbox-box:hover:not(.ui-state-disabled), .ui-radiobutton-box:hover:not(.ui-state-disabled), .ui-autocomplete:hover {
+    box-shadow: inset 0 4px 7px 0 rgba(0, 0, 0, 0.03);
+    border: 1px solid #323639;
+}
+.textbox, .textarea, .mask, .ui-dropdown, .ui-multiselect, .ui-calendar-w-btn, .ui-spinner, .ui-lookup-search input {
+    height: 2.1875rem;
+    line-height: 1.5;
+    color: #ffffff;
+    font-size: 1rem;
+}
+.ui-dialog-titlebar {
+    background-color: #612672;
+    padding: 0.6875rem 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+}
+.circle-bookmark {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: rgb(44,108,128)
+}
+.circle-edit {
+    position: fixed;
+    display: none;
+    color: #202124;
+}
+    .circle-edit:hover {
+        color: #FFFFFF
+    }
+.show-bookmark-edit-container:hover .circle-edit {
+    display: block;
+}
+.horizontal-plus {
+    position: relative;
+    background-color: #FFFFFF;
+    width: 50%;
+    height: 12.5%;
+    left: 25%;
+    top: 43.75%;
+}
+.symbol-center {
+    margin-top: 50%;
+}
+.vertical-plus {
+    position: relative;
+    background-color: #FFFFFF;
+    width: 12.5%;
+    height: 50%;
+    left: 43.75%;
+    top: 12.5%;
+}
+.bookmarks-expand-button {
+    background-color: #202124;
+    border-radius:20%;
+}
+::-webkit-scrollbar {
+    background-color: #3C4043
+}
+::-webkit-scrollbar-thumb {
+    background: #870597;
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 8px;
+}
+.tabview-bootstrap-container-padding {
+    padding: 1rem;
+}
+.tab_scrollable {
+    max-height: 800px;
+    overflow-y: scroll;
+}

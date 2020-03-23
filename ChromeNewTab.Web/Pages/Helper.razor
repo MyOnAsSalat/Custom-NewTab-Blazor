@@ -1,0 +1,27 @@
+﻿@page "/Helper/"
+
+@inject NavigationManager navigationManager
+
+@for (int i = 0; i < count; i++)
+{
+    <div>
+
+    </div>
+}
+@code {
+    int count;
+    [Parameter]
+    public string countParam { get; set; }
+    protected override void OnInitialized()
+    {
+        var uri = navigationManager.ToAbsoluteUri(navigationManager.Uri); //you can use IURIHelper for older versions
+
+        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("countParam", out var token))
+        {
+            var countParam = token.First();
+            count = int.Parse(countParam);
+        }
+
+
+    }
+}
